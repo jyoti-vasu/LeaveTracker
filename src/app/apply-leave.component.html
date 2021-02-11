@@ -1,0 +1,61 @@
+<div class="container" style="margin: auto;
+width: 80%;
+border:2px solid black;
+padding: 30px;">
+<div style="text-align: left;margin-top: 20;margin-left: 80%;">
+<a [routerLink]="['/signout']" >Logout</a>
+<router-outlet></router-outlet>
+</div>
+<h2 style="text-align: center;">Leave Application Form </h2>
+    <b>welcome</b>:{{username}}
+  <form class="form-horizontal" [formGroup]=" leaveform" novalidate>
+    <label class="control-label col-sm-2" for="From"><b>From:</b></label>
+    <div class="col-sm-5">
+
+    <div class="form-group">
+      <input type="date" class="form-control input-sm" id="fromdate" name="fromdate" placeholder="Required" 
+      formControlName="fromdate" required>
+      
+        </div>
+      </div>
+      <label class="control-label col-sm-2" for="To"><b>To:</b></label>
+      <div class="col-sm-5">
+  
+      <div class="form-group">
+        <input type="date" class="form-control input-sm" id="todate" name="todate" placeholder="Required"
+         formControlName="todate" required>
+        
+          </div>
+        </div>
+        <button type="submit" (click)="addData()" value="Submit"  
+        [disabled]="leaveform.pristine ||leaveform.invalid ">Apply</button> &nbsp;&nbsp;
+        <button type="submit"  (click)="updateLeave()" [disabled]="isupdate" >Update</button>
+      <!-- </div> -->
+      <br><br>
+        <table class="table table-bordered" >
+          <thead>
+            <tr>
+              <th item-width="400">From</th>
+              <th item-width="400">To</th>
+              <th item-width="400">Status</th>
+              <th item-width="200">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let emp of employee;let i=index">
+            
+            <tr *ngIf="emp">
+              <td>{{emp.fromdate}}</td>
+              <td>{{emp.todate}}</td>
+              <td>{{emp.status}}</td>
+              <td>
+               <button  class="btn btn-success" (click)="editLeave(i)" [disabled]='isEdit'>Edit</button>&nbsp;&nbsp;
+                <a class="btn btn-danger" (click)="deleteLeave(i)">Delete</a>
+              </td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+ </form>
+</div>
+
