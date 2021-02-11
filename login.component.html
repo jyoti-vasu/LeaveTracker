@@ -1,0 +1,36 @@
+<div class="selector-for-some-widget" class="text">
+    <div class="list-viwer-wrapper" class="text">
+        <div class="list-header-title" style="text-align: center;color:lightseagreen"><h2>Login Here</h2></div>
+        
+       <form [formGroup]="loginform"  novalidate>
+       <div class="form-container" 
+       style="margin: auto; width:40%; border:2px solid black; padding:70;text-align:center;">
+      
+        <mat-form-field >
+            <mat-label>Email</mat-label>
+            <input
+               matInput
+               formControlName="email"
+               [(ngModel)]="user.email"
+               placeholder="Ex.jone@gmail.com "
+               
+            />
+        </mat-form-field><br><br>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+               matInput [type]="hide ? 'password' : 'text'"
+               formControlName="password"
+               [(ngModel)]="user.password"
+               placeholder="Enter your password"
+              
+            />
+        </mat-form-field> <br><br>
+         <button mat-button type="submit" (click)="onLoginSubmit()" class="mat-raised-button mat-primary" [disabled]="!loginform.valid">Login</button> 
+         <button mat-button type="submit"  (click)="signupdata()" class="mat-raised-button mat-primary" >SignUp</button>     
+        
+        </div>   
+      </form>
+    </div>
+</div> 
+

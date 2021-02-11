@@ -1,0 +1,30 @@
+
+
+<div class="container " style="margin: auto;
+width: 70%;
+padding: 70px;">
+<div style="text-align: left;margin-top: 20;margin-left: 100%;">
+   <a [routerLink]="['/signout']" >Logout</a>
+   <router-outlet></router-outlet> 
+  </div>
+<h1 style="text-align: center;">Leave Summary</h1>
+<table border="3" >
+  <th>UserName</th>
+  <th>From</th>
+  <th>To</th>
+  <th>ApprovedStatus</th>
+   <th>Action</th>
+  <tr *ngFor="let leave of leaveinfo;let i=index">
+     <td>{{leave.username}}</td> 
+    <td>{{leave.fromdate}}</td>
+    <td>{{leave.todate}}</td>
+    <td>{{leave.status}}</td> 
+    <td><a class="btn btn-success" (click)="approval(i)" >Approve</a>&nbsp;
+      <a class="btn btn-danger" (click)="notApproval(i)" >Reject</a></td>
+    
+  </tr>
+
+</table>
+</div>
+
+

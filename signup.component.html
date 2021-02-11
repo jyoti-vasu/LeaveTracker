@@ -1,0 +1,56 @@
+
+
+<div class="container" style="text-align: center;">
+    <h2 style="text-align: center; font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large; color: brown; ">Registration Form !</h2>
+
+  <form class="form-horizontal" [formGroup]="userform" novalidate>
+   <br/><br/>
+
+    <div class="form-group" style="margin: auto; width:40%;
+    padding:70;text-align:center;">
+      
+    <label class="control-label col-sm-2" for="username" ></label>
+    <div class="col-sm-8">
+    Username : <input type="text" class="form-control" formControlName="username" placeholder="Username"> <br>
+    <div  class="alert alert-danger" *ngIf="userform.controls['username'].invalid && userform.controls['username'].touched">
+    <div *ngIf="userform.controls['username'].errors.required">Name is Required</div>
+    <div *ngIf="userform.controls['username'].errors.minlength">Name should be minimum of 3 letters</div>        
+    </div>
+    </div>
+    </div>
+  <br/><br/>
+
+    <div class="form-group" >
+    <label class="control-label col-sm-2" for="userPassword"></label> 
+    <div class="col-sm-8">
+    Password : <input type="password" class="form-control" formControlName="userPassword" placeholder="Password"> <br>
+    <div class="alert alert-danger" *ngIf="userform.controls['userPassword'].invalid && userform.controls['userPassword'].touched">
+    <div *ngIf="userform.controls['userPassword'].errors.required">Password is Required</div>
+    <div *ngIf="userform.controls['userPassword'].errors.minlength">Password should be minimum of 8 characters</div>        
+    </div>
+    </div>
+    </div>
+    <br/><br/>
+
+    <div class="form-group" >
+    <label class="control-label col-sm-5" for="Email"></label>
+    <div class="col-sm-8"> 
+    Email Id :  <input type="text" class="form-control" formControlName="Email" placeholder="Email id"> <br>
+    <div class="alert alert-danger" *ngIf="userform.controls['Email'].invalid && userform.controls['Email'].touched">
+    <div *ngIf="userform.controls['Email'].errors.required">Email is Required</div>
+    <div *ngIf="userform.controls['Email'].errors.pattern">Please Enter a valid email address</div>        
+    </div>
+    </div>
+    </div>
+    <br/> 
+
+    <button type="submit" (click)="adddata()" value="Submit"  [disabled]="userform.invalid"
+     >SignUp</button>
+    
+  </form>
+  
+
+    
+</div>
+
